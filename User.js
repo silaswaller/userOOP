@@ -8,17 +8,21 @@ class User {
 
 
     makeDeposit(amount) {
-    this.accountBalance += amount;  
+        this.accountBalance += amount; 
+        return this;
     }
     makeWithdrawal(amount) {
-    this.accountBalance -= amount;
+        this.accountBalance -= amount;
+        return this;
     }
     displayBalance() {
-        console.log(`${this.name}'s balance is ${this.accountBalance}`)
+        console.log(`${this.name}'s balance is ${this.accountBalance}`);
+        return this;
     }
     transferMoney(otherUser, amount) {
         this.accountBalance -= amount
         otherUser.accountBalance += amount;
+        return this;
     }
 
 }
@@ -51,3 +55,4 @@ silas.transferMoney(guido, 1);
 guido.displayBalance();
 silas.displayBalance();
 
+silas.makeDeposit(100).makeDeposit(100).displayBalance();
